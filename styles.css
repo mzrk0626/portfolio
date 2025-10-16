@@ -1,0 +1,500 @@
+/* ========================================
+   Research Profile Template Stylesheet
+   ========================================
+   カスタマイズ方法:
+   1. CSS変数セクションで色やサイズを調整
+   2. 各セクションのスタイルを必要に応じて変更
+   3. レスポンシブ設定を調整
+======================================== */
+
+/* ===== CSS変数（カスタマイズ推奨） ===== */
+:root {
+  /* カラーパレット - ダークテーマ */
+  --bg: var(--custom-bg, #0b1220); /* 背景色 */
+  --card: var(--custom-card, #0f172a); /* カード背景色 */
+  --muted: var(--custom-muted, #8aa0c6); /* 薄い文字色 */
+  --text: var(--custom-text, #e6ecf8); /* 通常文字色 */
+  --acc: var(--custom-accent, #60a5fa); /* アクセント色（青） */
+  --acc-2: var(--custom-accent-2, #22d3ee); /* サブアクセント色（シアン） */
+  --border: var(--custom-border, #1f2a44); /* ボーダー色 */
+
+  /* サイズ・効果 */
+  --shadow: var(--custom-shadow-dark, 0 10px 30px rgba(0, 0, 0, 0.35));
+  --radius-lg: var(--custom-radius-lg, 20px); /* 大きな角丸 */
+  --radius-md: var(--custom-radius-md, 12px); /* 中くらいの角丸 */
+  --ring: 0 0 0 3px color-mix(in hsl, var(--acc) 45%, transparent);
+}
+
+/* ===== ライトテーマ対応 ===== */
+@media (prefers-color-scheme: light) {
+  :root {
+    /* カラーパレット - ライトテーマ */
+    --bg: var(--custom-bg, #f7fbff); /* 背景色 */
+    --card: var(--custom-card, #ffffff); /* カード背景色 */
+    --muted: var(--custom-muted, #5b6b86); /* 薄い文字色 */
+    --text: var(--custom-text, #0b1220); /* 通常文字色 */
+    --acc: var(--custom-accent, #2563eb); /* アクセント色（青） */
+    --acc-2: var(--custom-accent-2, #0891b2); /* サブアクセント色（シアン） */
+    --border: var(--custom-border, #e6eef9); /* ボーダー色 */
+    --shadow: var(--custom-shadow-light, 0 10px 24px rgba(2, 6, 23, 0.06));
+  }
+}
+
+/* ===== ベーススタイル（基本設定） ===== */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* フォント最適化 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  /* フォントファミリー */
+  font-family: var(
+    --custom-font-family,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP",
+    "Yu Gothic UI",
+    "Meiryo",
+    "Helvetica Neue",
+    Arial,
+    sans-serif
+  );
+
+  /* 背景グラデーション */
+  background: radial-gradient(
+      1200px 800px at 80% -10%,
+      rgba(34, 211, 238, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 700px at -10% 20%,
+      rgba(96, 165, 250, 0.18),
+      transparent 60%
+    ),
+    var(--bg);
+
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* ===== リンクとフォーカス設定 ===== */
+a {
+  color: var(--acc);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+  border-radius: var(--radius-md);
+}
+
+/* ===== 画像設定 ===== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== レイアウト設定 ===== */
+.container {
+  width: min(var(--custom-container-width, 1100px), 92vw); /* コンテナ最大幅 */
+  margin: 0 auto;
+}
+
+/* ===== ナビゲーションバー ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: saturate(140%) blur(10px);
+  background: color-mix(in hsl, var(--bg) 80%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 0;
+}
+
+/* ブランドロゴ・名前 */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+}
+
+.brand-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--acc), var(--acc-2));
+  box-shadow: 0 0 10px color-mix(in hsl, var(--acc) 70%, transparent);
+}
+
+/* ナビゲーションリンク */
+.nav-links {
+  margin-left: auto;
+  display: flex;
+  gap: 18px;
+  font-size: 15px;
+}
+
+.nav-links a {
+  opacity: 0.9;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.nav-links a:hover {
+  background: color-mix(in hsl, var(--card) 88%, transparent);
+  text-decoration: none;
+}
+
+/* ===== プロフィールセクション（ヒーロー） ===== */
+.hero {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 40px 0 24px;
+}
+
+/* プロフィール画像 */
+.avatar {
+  width: 180px;
+  aspect-ratio: 1 / 1;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background: linear-gradient(180deg, #0ea5e9 0%, #1d4ed8 100%);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* タイトル・サブタイトル */
+.title {
+  margin: 0 0 8px;
+  font-size: clamp(24px, 3.4vw, 40px); /* レスポンシブフォントサイズ */
+  line-height: 1.25;
+  letter-spacing: 0.2px;
+}
+
+.subtitle {
+  margin: 6px 0 16px;
+  color: var(--muted);
+  font-size: clamp(14px, 1.7vw, 16px); /* レスポンシブフォントサイズ */
+}
+
+/* ===== キーワードチップ ===== */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 18px;
+}
+
+.chip {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  opacity: 0.95;
+  background: color-mix(in hsl, var(--card) 80%, transparent);
+}
+
+/* ===== ボタンスタイル ===== */
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* 基本ボタンスタイル */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: linear-gradient(
+    180deg,
+    color-mix(in hsl, var(--card) 70%, transparent),
+    color-mix(in hsl, var(--card) 95%, transparent)
+  );
+  box-shadow: var(--shadow);
+  font-weight: 600;
+  font-size: 14px;
+  min-height: 44px; /* アクセシビリティ：タップ領域確保 */
+}
+
+/* アイコンボタン */
+.btn.icon {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.btn.icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* ボタンホバー効果 */
+.btn:hover {
+  transform: translateY(-1px);
+  transition: transform 0.15s ease;
+  text-decoration: none;
+}
+
+/* プライマリボタン */
+.btn.primary {
+  background: linear-gradient(135deg, var(--acc), var(--acc-2));
+  color: white;
+  border: none;
+}
+
+/* リンクボタン */
+.btn.link-btn {
+  background: linear-gradient(
+    135deg,
+    color-mix(in hsl, var(--acc) 85%, transparent),
+    color-mix(in hsl, var(--acc-2) 85%, transparent)
+  );
+  color: var(--text);
+  border: 1px solid color-mix(in hsl, var(--acc) 40%, transparent);
+  padding: 10px 18px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn.link-btn:hover {
+  background: linear-gradient(135deg, var(--acc), var(--acc-2));
+  color: white;
+  border-color: var(--acc);
+  box-shadow: 0 0 20px color-mix(in hsl, var(--acc) 30%, transparent);
+}
+
+/* ===== セクション共通スタイル ===== */
+section {
+  padding: 28px 0;
+}
+
+.h2 {
+  font-size: 18px;
+  letter-spacing: 0.15em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+/* ===== カードコンポーネント ===== */
+.card {
+  background: color-mix(in hsl, var(--card) 86%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.pad {
+  padding: 20px;
+}
+
+/* ===== グリッドレイアウト ===== */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ===== リストスタイル ===== */
+.list {
+  display: grid;
+  gap: 14px;
+}
+
+.item {
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  padding: 14px;
+  background: color-mix(in hsl, var(--card) 75%, transparent);
+}
+
+.item h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+/* メタ情報・バッジ */
+.meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  margin-right: 8px;
+}
+
+/* ===== タイムライン（学歴等） ===== */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+}
+
+.timeline:before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--acc), transparent);
+  opacity: 0.5;
+}
+
+.t {
+  position: relative;
+  margin: 0 0 16px;
+  padding-left: 10px;
+}
+
+.t:before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--acc);
+  box-shadow: 0 0 0 3px color-mix(in hsl, var(--acc) 35%, transparent);
+}
+
+/* ===== 論文・発表スタイル ===== */
+.pub {
+  display: grid;
+  gap: 6px;
+}
+
+.pub .title {
+  font-size: 16px;
+  margin: 0;
+}
+
+.authors {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* 詳細情報展開 */
+details {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: color-mix(in hsl, var(--card) 90%, transparent);
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+code.bib {
+  display: block;
+  white-space: pre;
+  overflow-x: auto;
+  font-size: 12px;
+}
+
+/* ===== フッター ===== */
+footer {
+  padding: 40px 0 60px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ===== ユーティリティクラス ===== */
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.gap-6 {
+  gap: 6px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+    monospace;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  padding: 1px 6px;
+  border-radius: 6px;
+}
+
+/* ===== レスポンシブデザイン ===== */
+@media (max-width: var(--custom-breakpoint-mobile, 860px)) {
+  .hero {
+    grid-template-columns: 1fr; /* モバイルでは縦並び */
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr; /* モバイルでは1列 */
+  }
+
+  .nav-inner {
+    padding: 10px 0;
+  }
+}
+
+/* ===== アクセシビリティ配慮 ===== */
+/* アニメーション最小化設定（ユーザー設定に追従） */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

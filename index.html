@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- ===== 基本設定 ===== -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ===== サイト情報 (要カスタマイズ) ===== -->
+    <title>水口　陸 | 研究プロフィール</title>
+    <meta
+      name="description"
+      content="水口　陸の研究紹介サイト。研究内容、学歴、研究分野、キーワード、受賞歴、論文、会議発表、資格、言語を掲載。"
+    />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- ===== SNS/OGP設定 (要カスタマイズ) ===== -->
+    <meta property="og:title" content="水口　陸 | 研究プロフィール" />
+    <meta
+      property="og:description"
+      content="研究内容、学歴、研究分野、キーワード、受賞歴、論文、会議発表など。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./profile.jpg" />
+
+    <!-- ===== スタイルシート ===== -->
+    <link rel="stylesheet" href="config.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ===== ナビゲーションバー ===== -->
+    <div class="nav">
+      <div class="container nav-inner">
+        <!-- ブランド名 (要カスタマイズ) -->
+        <div class="brand">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span>Hikaru Umada / 水口　陸</span>
+        </div>
+
+        <!-- ナビゲーションリンク (要カスタマイズ) -->
+        <nav class="nav-links" aria-label="主要ナビゲーション">
+          <a href="#pubs">論文・発表</a>
+          <a href="#awards">受賞歴</a>
+          <a href="#edu">学歴</a>
+          <a href="#skills">資格・言語</a>
+          <a href="#contact">連絡先</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ===== メインコンテンツ ===== -->
+    <main class="container">
+      <!-- ===== プロフィールセクション ===== -->
+      <section class="hero" id="about">
+        <!-- プロフィール画像 (要カスタマイズ: profile.jpg を同フォルダに配置) -->
+        <div class="avatar">
+          <img
+            src="profile.jpg"
+            alt="プロフィール写真"
+            onerror="this.outerHTML='<div class=\'pad\' style=\'color:var(--muted)\'>profile.jpg を同フォルダに置くと写真が表示されます</div>'"
+          />
+        </div>
+
+        <!-- プロフィール情報 (要カスタマイズ) -->
+        <div>
+          <h1 class="title">
+            水口　陸
+            <span class="muted" style="font-size: 0.6em; font-weight: 600"
+              >Riku Mizuguchi</span
+            >
+          </h1>
+          <p class="subtitle">
+            筑波大学 人間総合科学学術院/研究群
+            情報学学位プログラム（進学予定）／ 山本研究室（学部研究）<br />
+            現テーマ：一人称視点と移動履歴に基づく心拍数予測に関する研究
+          </p>
+
+          <!-- 研究キーワード (要カスタマイズ) -->
+          <div class="chips" aria-label="研究キーワード">
+            <span class="chip">マルチモーダルデータ</span>
+            <span class="chip">機械学習</span>
+            <span class="chip">異常検知</span>
+            <span class="chip">ライフログデータ</span>
+          </div>
+
+          <!-- 外部リンク (要カスタマイズ) -->
+          <div class="cta">
+            <a
+              class="btn link-btn"
+              href="https://github.com/mzrk0626"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+            <img src="images/github-mark.png" alt="GitHub Icon" width="16" height="16">
+            </a>
+            <a class="btn icon" 
+               href="https://www.instagram.com/m_rk.6/" 
+               target="_blank" 
+               rel="noopener" 
+               aria-label="Instagram" 
+               title="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zm6-3a1 1 0 1 1-1 1 1 0 0 1 1-1z"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 論文・会議発表セクション ===== -->
+      <section id="pubs">
+        <h2 class="h2">論文・会議発表</h2>
+        <div class="list" id="pubList">
+          <!-- 論文エントリー例 (要カスタマイズ) -->
+          <article class="item pub">
+            <div class="row">
+              <span class="badge">NTCIR-18</span>
+              <span class="meta">2025</span>
+            </div>
+            <h3 class="title">
+              YMX2L at the NTCIR-18 Transfer-2 Task.
+            </h3>
+            <div class="authors">Riku Mizuguchi, Takeshi Yamazaki and Shuhei Yamamoto</div>
+            <!-- 詳細情報がある場合はコメントアウトを解除 -->
+            <!-- <div class="meta">Proc. Conference Name 2025, pp.1–10.</div> -->
+          </article>
+
+          <!-- 追加の論文エントリーはここに追加 -->
+          <!-- <article class="item pub">...</article> -->
+        </div>
+      </section>
+
+      <!-- ===== 受賞歴セクション ===== -->
+      <section id="awards">
+        <h2 class="h2">受賞歴</h2>
+        <!-- 受賞歴がある場合は以下の例を参考に追加 -->
+        <div class="card pad list">
+          <div class="t">
+            <div class="item">
+              <strong>Best Poster Presentation Award/strong>
+              <div class="meta">2025 / NTCIR-18</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 学歴セクション ===== -->
+      <section id="edu">
+        <h2 class="h2">学歴</h2>
+        <div class="card pad timeline">
+          <!-- 学歴エントリー (要カスタマイズ) -->
+          <div class="t">
+            <div class="item">
+              <strong>筑波大学 情報学群 知識情報・図書館学類</strong>
+              <div class="meta">2022–2026 | 学士（予定）</div>
+            </div>
+          </div>
+          <div class="t">
+            <div class="item">
+              <strong
+                >筑波大学 大学院 人間総合科学学術院/研究群
+                情報学学位プログラム</strong
+              >
+              <div class="meta">2026– | 修士課程（予定）</div>
+            </div>
+          </div>
+
+          <!-- 追加の学歴エントリーはここに追加 -->
+          <!-- 
+          <div class="t">
+            <div class="item">
+              <strong>学校名・学部名</strong>
+              <div class="meta">期間 | 学位</div>
+            </div>
+          </div>
+          -->
+        </div>
+      </section>
+
+      <!-- ===== 資格・言語セクション ===== -->
+      <section id="skills">
+        <h2 class="h2">資格・言語</h2>
+        <div class="grid-2">
+          <!-- 保有資格 (要カスタマイズ) -->
+          <div class="card pad">
+            <h3 style="margin-top: 0">保有資格</h3>
+            <!-- 資格がある場合は以下の例を参考に追加 -->
+            <div class="list">
+              <div class="item">
+                <div class="row">
+                  <span class="badge">資格</span>
+                  <strong>基本情報技術者</strong>
+                </div>
+                <div class="meta">2025年5月</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- プログラミング言語・ツール (要カスタマイズ) -->
+          <div class="card pad">
+            <h3 style="margin-top: 0">言語</h3>
+            <div class="row gap-6" style="margin-bottom: 10px">
+              <span class="chip">Python</span>
+              <!-- 追加の言語チップはここに追加 -->
+              <!-- <span class="chip">JavaScript</span> -->
+            </div>
+            <!-- 言語に関する補足説明 -->
+            <!-- 
+            <p class="muted" style="margin: 0">
+              主な使用技術の説明をここに記載
+            </p>
+            -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 連絡先セクション ===== -->
+      <section id="contact">
+        <h2 class="h2">連絡先</h2>
+        <div class="grid-2">
+          <!-- 連絡先情報 (要カスタマイズ) -->
+          <div class="card pad">
+            <h3>メール</h3>
+            <ul>
+              <li>
+                <a href="mailto:s2211866@u.tsukuba.ac.jp"
+                  >s2210632@u.tsukuba.ac.jp</a
+                >
+              </li>
+            </ul>
+            <!-- 追加の連絡先がある場合はここに追加 -->
+            <!-- 
+            <h3>その他</h3>
+            <ul>
+              <li>LinkedIn: <a href="#">プロフィールURL</a></li>
+            </ul>
+            -->
+          </div>
+
+          <!-- 謝辞・その他 (要カスタマイズ) -->
+          <div class="card pad">
+            <h3>謝辞</h3>
+            <p class="muted">
+              ご指導・ご助言をいただいた皆様に感謝申し上げます。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== フッター ===== -->
+      <footer>
+        <!-- 著作権表示 (要カスタマイズ) -->
+        © <span id="year"></span> Takeshi Yamazaki. All rights reserved.
+      </footer>
+    </main>
+
+    <!-- ===== JavaScript ===== -->
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+/* ========================================
+   カスタマイズ設定ファイル
+   ========================================
+   このファイルを編集することで、簡単に
+   色やサイズをカスタマイズできます。
+======================================== */
+
+/* ===== カラーパレット（カスタマイズ推奨） ===== */
+:root {
+  /* ダークテーマの色設定 */
+  --custom-bg: #0b1220; /* 背景色 */
+  --custom-card: #0f172a; /* カード背景色 */
+  --custom-muted: #8aa0c6; /* 薄い文字色 */
+  --custom-text: #e6ecf8; /* 通常文字色 */
+  --custom-accent: #60a5fa; /* アクセント色（青） */
+  --custom-accent-2: #22d3ee; /* サブアクセント色（シアン） */
+  --custom-border: #1f2a44; /* ボーダー色 */
+
+  /* サイズ設定 */
+  --custom-radius-lg: 20px; /* 大きな角丸 */
+  --custom-radius-md: 12px; /* 中くらいの角丸 */
+  --custom-container-width: 1100px; /* コンテナ最大幅 */
+
+  /* 影の設定 */
+  --custom-shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* ライトテーマの色設定 */
+@media (prefers-color-scheme: light) {
+  :root {
+    --custom-bg: #f7fbff; /* 背景色 */
+    --custom-card: #ffffff; /* カード背景色 */
+    --custom-muted: #5b6b86; /* 薄い文字色 */
+    --custom-text: #0b1220; /* 通常文字色 */
+    --custom-accent: #2563eb; /* アクセント色（青） */
+    --custom-accent-2: #0891b2; /* サブアクセント色（シアン） */
+    --custom-border: #e6eef9; /* ボーダー色 */
+    --custom-shadow-light: 0 10px 24px rgba(2, 6, 23, 0.06);
+  }
+}
+
+/* ===== フォント設定 ===== */
+:root {
+  --custom-font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI,
+    Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI",
+    "Meiryo", "Helvetica Neue", Arial, sans-serif;
+
+  /* フォントサイズ */
+  --custom-font-size-large: clamp(24px, 3.4vw, 40px);
+  --custom-font-size-medium: clamp(14px, 1.7vw, 16px);
+  --custom-font-size-small: 12px;
+}
+
+/* ===== レスポンシブブレークポイント ===== */
+:root {
+  --custom-breakpoint-mobile: 860px;
+}
+
+/*
+  ===== カスタマイズ例 =====
+  
+  1. アクセント色を変更する場合:
+     --custom-accent: #ff6b6b;        // 赤系
+     --custom-accent-2: #4ecdc4;      // 青緑系
+  
+  2. 角丸を変更する場合:
+     --custom-radius-lg: 10px;        // よりシャープに
+     --custom-radius-md: 6px;
+  
+  3. コンテナ幅を変更する場合:
+     --custom-container-width: 800px; // より狭く
+  
+  4. フォントを変更する場合:
+     --custom-font-family: "Times New Roman", serif; // セリフ体
+*/
